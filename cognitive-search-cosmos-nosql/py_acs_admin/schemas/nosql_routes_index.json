@@ -11,15 +11,6 @@
       "facetable": "true"
     },
     {
-      "name": "doc_id",
-      "key": "false",
-      "type": "Edm.String",
-      "searchable": "true",
-      "filterable": "true",
-      "sortable": "true",
-      "facetable": "true"
-    },
-    {
       "name": "pk",
       "type": "Edm.String",
       "key": "false",

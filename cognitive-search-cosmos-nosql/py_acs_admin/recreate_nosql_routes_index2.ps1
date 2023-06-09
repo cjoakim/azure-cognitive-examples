@@ -1,4 +1,4 @@
-# Delete and recreate the mongo-routes2 indexing.
+# Delete and recreate the nosql-routes2 indexing.
 #
 # Note: delete in the sequence of indexer, index, datasource
 # but recreate in the opposite sequence of datasource, index, indexer
@@ -9,31 +9,31 @@ Write-Output 'deleting output tmp/ files ...'
 del tmp\*.*
 
 Write-Output '===================='
-python search.py delete_indexer mongo-routes2
+python search.py delete_indexer nosql-routes2
 sleep 5
 
 Write-Output '===================='
-python search.py delete_index mongo-routes2
+python search.py delete_index nosql-routes2
 sleep 5
 
 Write-Output '===================='
-python search.py delete_datasource cosmosdb-mongo-search-routes2
+python search.py delete_datasource cosmosdb-nosql-search-routes2
 sleep 30
 
 Write-Output '===================='
-python search.py create_cosmos_mongo_datasource search routes
+python search.py create_cosmos_nosql_datasource search routes
 sleep 10
 
 Write-Output '===================='
-python search.py create_index mongo-routes2 mongo_routes_index
+python search.py create_index nosql-routes2 nosql_routes_index
 sleep 5
 
 Write-Output '===================='
-python search.py create_indexer mongo-routes2 mongo_routes_indexer
+python search.py create_indexer nosql-routes2 nosql_routes_indexer
 sleep 5
 
 Write-Output '===================='
-python search.py get_indexer_status mongo-routes2
+python search.py get_indexer_status nosql-routes2
 sleep 5
 
 Write-Output '===================='
@@ -56,4 +56,4 @@ Write-Output 'pausing to let the indexer run ...'
 sleep 60
 
 Write-Output '===================='
-python search.py search_index mongo-routes2 route_clt_rdu
+python search.py search_index nosql-routes2 route_clt_rdu

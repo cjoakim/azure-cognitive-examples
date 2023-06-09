@@ -47,7 +47,7 @@ class Schemas(BaseClass):
         }
         return schema
 
-    def cosmosdb_mongo_datasource_post_body(self):
+    def cosmosdb_nosql_datasource_post_body(self):
         schema = {
             "name": "... populate me ...",
             "type": "cosmosdb",
@@ -67,7 +67,6 @@ class Schemas(BaseClass):
             "identity": "null"
         }
         return schema
-        # See https://learn.microsoft.com/en-us/azure/search/search-howto-index-cosmosdb-mongodb
 
     def sample_index_object(self, name):
         schema = {

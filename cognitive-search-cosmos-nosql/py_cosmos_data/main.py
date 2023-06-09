@@ -6,7 +6,6 @@ Usage:
   python main.py load_airport_data dev airports
   -
   python main.py load_route_data <db> <coll>
-  python main.py load_route_data dev airports
   python main.py load_route_data dev routes
 Options:
   -h --help     Show this screen.
@@ -39,76 +38,42 @@ def load_airport_data(dbname, cname):
     objects = FS.read_json(enhanced_airports_file())
     print('{} enhanced_airports loaded from file'.format(len(objects)))
 
-    m = get_mongo_object(dbname, cname, False)
+    c = get_cosmos_object(dbname, cname, False)
 
     for idx, key in enumerate(sorted(objects.keys())):
         if idx < 999999:
             print('---')
             obj = objects[key]
-            obj['_id'] = str(uuid.uuid4())
+            obj['id'] = str(uuid.uuid4())
             print(json.dumps(obj, sort_keys=False, indent=2))
-            result = m.insert_doc(obj)
-            print(result.inserted_id)
+            result = c.upsert_doc(obj)
+            print(result)
 
 def load_route_data(dbname, cname):
     print('load_route_data - dbname: {}, cname: {}'.format(dbname, cname))
     objects = FS.read_json(enhanced_routes_file())
     print('{} enhanced_routes loaded from file'.format(len(objects)))
 
-    m = get_mongo_object(dbname, cname, False)
+    c = get_cosmos_object(dbname, cname, False)
 
     for idx, obj in enumerate(objects):
         if idx < 999999:
             print('---')
-            obj['_id'] = str(uuid.uuid4())
+            obj['id'] = str(uuid.uuid4())
             print(json.dumps(obj, sort_keys=False, indent=2))
-            result = m.insert_doc(obj)
-            print(result.inserted_id)
+            result = c.upsert_doc(obj)
+            print(result)
 
-def count_docs(dbname, cname):
-    print('count_docs - dbname: {}, cname: {}'.format(dbname, cname))
-
-    m = get_mongo_object(dbname, cname, False)
-    result = m.count_docs({})
-    print('document count: {}'.format(result))
-
-def truncate_container(dbname, cname):
-    print('truncate_container - dbname: {}, cname: {}'.format(dbname, cname))
-
-    m = get_mongo_object(dbname, cname, False)
-    continue_to_processs, loop_counter = True, 0
-    while continue_to_processs:
-        loop_counter  = loop_counter + 1
-        docs = m.find({}, 100)
-        for doc in docs:
-            m.delete_one(doc)
-        count_result  = m.count_docs({})
-        print('truncate_container - loop: {}, count: {}'.format(loop_counter, count_result))
-        if count_result == 0:
-            continue_to_processs = False
-        if loop_counter > 999:
-            continue_to_processs = False
-
-def get_mongo_object(dbname, cname, verbose=False):
+def get_cosmos_object(dbname, cname, verbose=False):
     opts = dict()
-    opts['conn_string'] = get_conn_string()
-    opts['verbose'] = False
-    m = Mongo(opts)
+    opts['url'] = Env.var('AZURE_COSMOSDB_NOSQL_URI')
+    opts['key'] = Env.var('AZURE_COSMOSDB_NOSQL_RW_KEY1')
+    c = Cosmos(opts)
     if dbname != None:
-        m.set_db(dbname)
+        c.set_db(dbname)
         if cname != None:
-            m.set_coll(cname)
-    return m
-
-def get_conn_string():
-    try:
-        conn_string = Env.var('AZURE_COSMOSDB_MONGODB_CONN_STRING')
-        if verbose():
-            print("conn_string: {}".format(conn_string))
-        return conn_string
-    except Exception as e:
-        print(e)
-        return None
+            c.set_container(cname)
+    return c
 
 def enhanced_airports_file():
     return 'data/enhanced_airports.json'

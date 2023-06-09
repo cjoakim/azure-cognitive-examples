@@ -2,10 +2,10 @@
 Usage:
     python search.py display_env
     -
-    python search.py create_cosmos_mongo_datasource <db> <collection>
-    python search.py create_cosmos_mongo_datasource dev airports --no-http
-    python search.py create_cosmos_mongo_datasource dev airports
-    python search.py create_cosmos_mongo_datasource dev routes
+    python search.py create_cosmos_nosql_datasource <db> <collection>
+    python search.py create_cosmos_nosql_datasource dev airports --no-http
+    python search.py create_cosmos_nosql_datasource dev airports
+    python search.py create_cosmos_nosql_datasource dev routes
     -
     python search.py create_cosmos_nosql_datasource dev airports
     -
@@ -17,38 +17,38 @@ Usage:
     python search.py list_datasources
     -
     python search.py get_xxx <name>
-    python search.py get_index mongo-airports
-    python search.py get_index mongo-routes
-    python search.py get_indexer mongo-airports
-    python search.py get_indexer mongo-routes
-    python search.py get_indexer_status mongo-airports
-    python search.py get_indexer_status mongo-routes
-    python search.py get_datasource cosmosdb-mongo-dev-airports
-    python search.py get_datasource cosmosdb-mongo-dev-routes
+    python search.py get_index nosql-airports
+    python search.py get_index nosql-routes
+    python search.py get_indexer nosql-airports
+    python search.py get_indexer nosql-routes
+    python search.py get_indexer_status nosql-airports
+    python search.py get_indexer_status nosql-routes
+    python search.py get_datasource cosmosdb-nosql-dev-airports
+    python search.py get_datasource cosmosdb-nosql-dev-routes
     -
     python search.py create_index <index_name> <schema_file>
-    python search.py create_index mongo-airports mongo_airports_index
-    python search.py create_index mongo-routes mongo_routes_index
-    python search.py delete_index mongo-airports
+    python search.py create_index nosql-airports nosql_airports_index
+    python search.py create_index nosql-routes nosql_routes_index
+    python search.py delete_index nosql-airports
     -
-    python search.py create_indexer mongo-airports mongo_airports_indexer
-    python search.py create_indexer mongo-routes mongo_routes_indexer
-    python search.py delete_indexer mongo-airports
-    python search.py run_indexer mongo-airports
+    python search.py create_indexer nosql-airports nosql_airports_indexer
+    python search.py create_indexer nosql-routes nosql_routes_indexer
+    python search.py delete_indexer nosql-airports
+    python search.py run_indexer nosql-airports
     -
     python search.py create_synmap airports synonym_map_airports
     python search.py update_synmap airports synonym_map_airports
     python search.py delete_synmap airports 
     -
-    python search.py search_index mongo-airports all_airports
-    python search.py search_index mongo-airports airports_charl
-    python search.py search_index mongo-airports airports_clt
-    python search.py search_index mongo-airports airports_campy
-    python search.py search_index mongo-airports airports_lucene_east_cl_south 
+    python search.py search_index nosql-airports all_airports
+    python search.py search_index nosql-airports airports_charl
+    python search.py search_index nosql-airports airports_clt
+    python search.py search_index nosql-airports airports_campy
+    python search.py search_index nosql-airports airports_lucene_east_cl_south 
     -
-    python search.py search_index mongo-routes route_clt_rdu
+    python search.py search_index nosql-routes route_clt_rdu
     -
-    python search.py lookup_doc mongo-airports eVBWc0FPdExvZzJYQXdBQUFBQUFBQT090
+    python search.py lookup_doc nosql-airports eVBWc0FPdExvZzJYQXdBQUFBQUFBQT090
 """
 
 import json
@@ -203,10 +203,10 @@ class SearchClient(BaseClass):
         function = 'create_cosmos_nosql_datasource_{}_{}'.format(dbname, container)
         self.http_request(function, 'post', url, self.admin_headers, body)
 
-    def create_cosmos_mongo_datasource(self, dbname, container):
-        conn_str = self.cosmos_mongo_datasource_name_conn_str(dbname)
-        body = self.schemas.cosmosdb_mongo_datasource_post_body()
-        body['name'] = self.cosmos_mongo_datasource_name(dbname, container)
+    def create_cosmos_nosql_datasource(self, dbname, container):
+        conn_str = self.cosmos_nosql_datasource_name_conn_str(dbname)
+        body = self.schemas.cosmosdb_nosql_datasource_post_body()
+        body['name'] = self.cosmos_nosql_datasource_name(dbname, container)
         body['credentials']['connectionString'] = conn_str
         body['container']['name'] = container
         body['dataDeletionDetectionPolicy'] = None
@@ -214,7 +214,7 @@ class SearchClient(BaseClass):
         body['identity'] = None
 
         url = self.urls.create_datasource()
-        function = 'create_cosmos_mongo_datasource_{}_{}'.format(dbname, container)
+        function = 'create_cosmos_nosql_datasource_{}_{}'.format(dbname, container)
         self.http_request(function, 'post', url, self.admin_headers, body)
 
     def delete_datasource(self, name):
@@ -458,10 +458,10 @@ if __name__ == "__main__":
             container = sys.argv[3]
             client.create_cosmos_nosql_datasource(dbname, container)
 
-        elif func == 'create_cosmos_mongo_datasource':
+        elif func == 'create_cosmos_nosql_datasource':
             dbname = sys.argv[2]
             container = sys.argv[3]
-            client.create_cosmos_mongo_datasource(dbname, container)
+            client.create_cosmos_nosql_datasource(dbname, container)
 
         elif func == 'delete_datasource':
             name = sys.argv[2]

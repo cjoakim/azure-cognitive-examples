@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Delete and recreate the mongo-airports indexing.
+# Delete and recreate the nosql-airports indexing.
 #
 # Note: delete in the sequence of indexer, index, datasource
 # but recreate in the opposite sequence of datasource, index, indexer
@@ -11,31 +11,31 @@ echo 'deleting output tmp/ files ...'
 del tmp/*.*
 
 echo '===================='
-python search.py delete_indexer mongo-airports
+python search.py delete_indexer nosql-airports
 sleep 5
 
 echo '===================='
-python search.py delete_index mongo-airports
+python search.py delete_index nosql-airports
 sleep 5
 
 echo '===================='
-python search.py delete_datasource cosmosdb-mongo-dev-airports
+python search.py delete_datasource cosmosdb-nosql-dev-airports
 sleep 30
 
 echo '===================='
-python search.py create_cosmos_mongo_datasource dev airports
+python search.py create_cosmos_nosql_datasource dev airports
 sleep 10
 
 echo '===================='
-python search.py create_index mongo-airports mongo_airports_index
+python search.py create_index nosql-airports nosql_airports_index
 sleep 5
 
 echo '===================='
-python search.py create_indexer mongo-airports mongo_airports_indexer
+python search.py create_indexer nosql-airports nosql_airports_indexer
 sleep 5
 
 echo '===================='
-python search.py get_indexer_status mongo-airports
+python search.py get_indexer_status nosql-airports
 sleep 5
 
 echo '===================='
@@ -58,4 +58,4 @@ echo 'pausing to let the indexer run ...'
 sleep 60
 
 echo '===================='
-python search.py search_index mongo-airports airports_clt
+python search.py search_index nosql-airports airports_clt
