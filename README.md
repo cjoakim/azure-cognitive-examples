@@ -10,13 +10,15 @@ This repo contains the following three subdirectories/subprojects with working c
 
 ```
 .                                  <-- Root directory of this repo
-├── cognitive-search-cosmos-mongo 
-    ├── java_acs_client            <-- Java client app for the indexed data in Azure Cognitive Services
-    ├── py_acs_admin               <-- Python console app for configuring/administering Azure Cognitive Services
-    └── py_cosmos_data             <-- Python console app to wrangle the raw data and load it to Cosmos DB Mongo API
-├── cognitive-search-cosmos-nosql  <-- this is a work-in-progress
-    ├── java_acs_client            <-- Java client app for the indexed data in Azure Cognitive Services
-    ├── py_acs_admin               <-- Python console app for configuring/administering Azure Cognitive Services
-    └── py_cosmos_data             <-- Python console app to wrangle the raw data and load it to Cosmos DB NoSQL API
+│
+├── cognitive-search-cosmos-mongo
+│   ├── java_acs_client            <-- Java client app for the indexed data in Azure Cognitive Services
+│   ├── py_acs_admin               <-- Python console app for configuring/administering Azure Cognitive Services
+│   └── py_cosmos_data             <-- Python console app to wrangle the raw data and load it to Cosmos DB Mongo API
+│
+└── cognitive-search-cosmos-nosql  <-- CURRENTLY A WORK-IN-PROGRESS, PORTED FROM ABOVE DIRECTORY
+│   ├── java_acs_client            <-- Java client app for the indexed data in Azure Cognitive Services
+│   ├── py_acs_admin               <-- Python console app for configuring/administering Azure Cognitive Services
+│   └── py_cosmos_data             <-- Python console app to wrangle the raw data and load it to Cosmos DB NoSQL API
 ```
 
