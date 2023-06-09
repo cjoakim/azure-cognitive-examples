@@ -1,4 +1,4 @@
-# azure-cognitive-search-cosmos-db
+# cognitive-search-cosmos-mongo
 
 Examples of using **Azure Cognitive Search (ACS)** with **Azure Cosmos DB**,
 focusing on the **Mongo API**.
