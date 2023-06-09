@@ -1,0 +1,154 @@
+{
+  "all_airports": {
+    "count": true,
+    "search": "*",
+    "orderby": "pk"
+  },
+  "airports_atl": {
+    "count": true,
+    "search": "atl",
+    "orderby": "pk"
+  },
+  "airports_clt": {
+    "count": true,
+    "search": "clt",
+    "orderby": "pk"
+  },
+  "airports_charl": {
+    "count": true,
+    "search": "charl*",
+    "orderby": "pk",
+    "select": "name,city,pk"
+  },
+  "airports_campy": {
+    "count": true,
+    "search": "campy",
+    "orderby": "pk",
+    "select": "city"
+  },
+  "airports_lucene_east_cl": {
+    "count": true,
+    "search": "tz:New_York~ AND pk:CL*",
+    "orderby": "pk",
+    "select": "pk,name,city,latitude,tz",
+    "queryType": "full"
+  },
+  "airports_lucene_east_cl_south": {
+    "count": true,
+    "search": "tz:New_York~ AND pk:CL*",
+    "filter": "latitude lt 39",
+    "orderby": "pk",
+    "select": "pk,name,city,latitude,tz",
+    "queryType": "full"
+  },
+
+  "route_clt_rdu": {
+    "count": true,
+    "search": "CLT:RDU",
+    "orderby": "pk"
+  },
+  "route_joakim": {
+    "count": true,
+    "search": "Joakim",
+    "skip": 0,
+    "top": 10,
+    "orderby": "search.score() desc"
+  },
+
+  "all_documents": {
+    "count": true,
+    "search": "*",
+    "orderby": "id"
+  },
+  "large_documents": {
+    "count": true,
+    "search": "*",
+    "filter": "size gt 10000000",
+    "select": "id,url,size,topwords",
+    "orderby": "id"
+  },
+  "top_words_python": {
+    "count": true,
+    "search": "python,searchFields=topwords",
+    "select": "id,url,size,topwords",
+    "orderby": "search.score() desc"
+  },
+  "us_dot_number": {
+    "count": true,
+    "search": "usdot 021800,searchFields=topwords",
+    "select": "id,url,size,topwords",
+    "orderby": "search.score() desc"
+  },
+  "top_words_flanagan": {
+    "count": true,
+    "search": "flanagan,searchFields=topwords",
+    "select": "id,url,size,topwords",
+    "orderby": "search.score() desc"
+  },
+  "keyphrase_adventurous_little_sloop": {
+    "count": true,
+    "search": "adventurous little sloop,searchFields=keyPhrases",
+    "select": "id,url,size,keyPhrases",
+    "skip": 0,
+    "top": 1,
+    "orderby": "search.score() desc"
+  },
+  "nebraska": {
+    "count": true,
+    "search": "nebraska,searchFields=imageText",
+    "select": "id,url,size,topwords",
+    "orderby": "search.score() desc"
+  },
+  "moscow": {
+    "count": true,
+    "search": "moscow,searchFields=imageText",
+    "select": "id,url,size",
+    "orderby": "search.score() desc"
+  },
+  "moscow_with_text": {
+    "count": true,
+    "search": "moscow,searchFields=imageText",
+    "select": "id,url,size,topwords,mergedText",
+    "orderby": "search.score() desc"
+  },
+  "pandas_as_in_bear": {
+    "count": true,
+    "search": "pandas bear giant,searchFields=imageText,mergedText",
+    "select": "id,url,size",
+    "skip": 0,
+    "top": 2,
+    "orderby": "search.score() desc"
+  },
+  "pandas_as_in_python": {
+    "count": true,
+    "search": "pandas dataframe,searchFields=imageText,mergedText",
+    "select": "id,url,size",
+    "skip": 0,
+    "top": 2,
+    "orderby": "search.score() desc"
+  },
+  "python_as_in_code": {
+    "count": true,
+    "search": "python programming code,searchFields=imageText,mergedText",
+    "select": "id,url,size",
+    "skip": 0,
+    "top": 3,
+    "orderby": "search.score() desc"
+  },
+  "python_as_in_snake": {
+    "count": true,
+    "search": "python snake,searchFields=imageText,mergedText",
+    "select": "id,url,size",
+    "skip": 0,
+    "top": 1,
+    "orderby": "search.score() desc"
+  },
+  "airports_most_recent": {
+    "count": true,
+    "search": "*",
+    "select": "id,pk,name,epoch",
+    "skip": 0,
+    "top": 3,
+    "orderby": "epoch desc"
+  }
+}

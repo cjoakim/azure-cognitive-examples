@@ -1,0 +1,8 @@
+{
+  "name": "airports",
+  "dataSourceName": "cosmosdb-dev-airports",
+  "targetIndexName": "airports",
+  "schedule": {
+    "interval": "PT12H"
+  }
+}

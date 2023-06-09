@@ -1,0 +1,95 @@
+
+
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.2'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.2'
+    implementation 'org.mongodb:mongodb-driver-sync:4.4.1'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.19.0'
+
+    // lombok, see https://projectlombok.org
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'com.google.guava:guava:31.1-jre'
+}
+
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+application {
+    mainClass = 'org.cjoakim.cosmosdb.search.App'
+}
+
+// gradle search_all_airports --warning-mode all
+task search_all_airports(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.cjoakim.cosmosdb.search.App'
+    args 'mongo-airports',  'all_airports'
+}
+
+// gradle search_clt_airport --warning-mode all
+task search_clt_airport(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.cjoakim.cosmosdb.search.App'
+    args 'mongo-airports',  'clt_airport'
+}
+
+// gradle search_charlotte_douglas_airport --warning-mode all
+task search_charlotte_douglas_airport(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.cjoakim.cosmosdb.search.App'
+    args 'mongo-airports',  'charlotte_douglas_airport'
+}
+
+// gradle search_airports_eastus_cl --warning-mode all
+task search_airports_eastus_cl(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.cjoakim.cosmosdb.search.App'
+    args 'mongo-airports', 'airports_eastus_cl'
+}
+
+// gradle search_airports_eastus_cl_south --warning-mode all
+task search_airports_eastus_cl_south(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.cjoakim.cosmosdb.search.App'
+    args 'mongo-airports', 'airports_eastus_cl_south'
+}
+
+// gradle search_routes_jfk_mia --warning-mode all
+task search_routes_jfk_mia(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.cjoakim.cosmosdb.search.App'
+    args 'mongo-routes', 'routes_jfk_mia'
+}
+
+// gradle search_routes_nested --warning-mode all
+task search_routes_nested(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.cjoakim.cosmosdb.search.App'
+    args 'mongo-routes', 'routes_nested'
+}
+
+// gradle search_routes_joakim --warning-mode all
+task search_routes_joakim(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.cjoakim.cosmosdb.search.App'
+    args 'mongo-routes', 'routes_joakim'
+}
+

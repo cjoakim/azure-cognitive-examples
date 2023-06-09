@@ -1,0 +1,106 @@
+{
+  "name": "routes",
+  "fields": [
+    {
+      "name": "id",
+      "key": "true",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "doc_id",
+      "key": "false",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "pk",
+      "type": "Edm.String",
+      "key": "false",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "airline",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "airline_id",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "source_iata",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "dest_iata",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "equipment",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "stops",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    { "name": "source_airport", "type": "Edm.ComplexType",
+      "fields": [
+        { "name": "name",    "type": "Edm.String", "filterable": true, "sortable": true, "facetable": true, "searchable": true },
+        { "name": "city",    "type": "Edm.String", "filterable": true, "sortable": true, "facetable": true, "searchable": true },
+        { "name": "country", "type": "Edm.String", "filterable": true, "sortable": true, "facetable": true, "searchable": true },
+        { "name": "iata",    "type": "Edm.String", "filterable": true, "sortable": true, "facetable": true, "searchable": true },
+        { "name": "tz",      "type": "Edm.String", "filterable": true, "sortable": true, "facetable": true, "searchable": true }
+      ]
+    },
+    { "name": "dest_airport", "type": "Edm.ComplexType",
+      "fields": [
+        { "name": "name",    "type": "Edm.String", "filterable": true, "sortable": true, "facetable": true, "searchable": true },
+        { "name": "city",    "type": "Edm.String", "filterable": true, "sortable": true, "facetable": true, "searchable": true },
+        { "name": "country", "type": "Edm.String", "filterable": true, "sortable": true, "facetable": true, "searchable": true },
+        { "name": "iata",    "type": "Edm.String", "filterable": true, "sortable": true, "facetable": true, "searchable": true },
+        { "name": "tz",      "type": "Edm.String", "filterable": true, "sortable": true, "facetable": true, "searchable": true }
+      ]
+    },
+    {
+      "name": "frequent_passengers",
+      "type": "Collection(Edm.String)",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "false",
+      "facetable": "false"
+    }
+  ]
+}

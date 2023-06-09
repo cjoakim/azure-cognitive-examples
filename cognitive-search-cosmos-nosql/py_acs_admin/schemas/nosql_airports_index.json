@@ -1,0 +1,95 @@
+{
+  "name": "airports",
+  "fields": [
+    {
+      "name": "id",
+      "key": "true",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "pk",
+      "type": "Edm.String",
+      "key": "false",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "name",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "city",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "country",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "iata_code",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "latitude",
+      "type": "Edm.Double",
+      "searchable": "false",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "longitude",
+      "type": "Edm.Double",
+      "searchable": "false",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "timezone_code",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    },
+    {
+      "name": "epoch",
+      "type": "Edm.Double",
+      "searchable": "false",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "false"
+    },
+    {
+      "name": "note",
+      "type": "Edm.String",
+      "searchable": "true",
+      "filterable": "true",
+      "sortable": "true",
+      "facetable": "true"
+    }
+  ]
+}

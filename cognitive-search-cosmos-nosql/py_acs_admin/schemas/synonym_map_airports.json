@@ -1,0 +1,5 @@
+{   
+    "name": "synmap",  
+    "format": "solr",
+    "synonyms" : "Campinas, Campy\npy, python\nLincoln, Abe\nUnited States, United States of America, USA"
+}  

@@ -1,0 +1,8 @@
+{
+  "name": "mongo-routes",
+  "dataSourceName": "cosmosdb-mongo-dev-routes",
+  "targetIndexName": "mongo-routes",
+  "schedule": {
+    "interval": "PT12H"
+  }
+}
