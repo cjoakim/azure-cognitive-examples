@@ -1,5 +1,5 @@
 {
-  "name": "cosmosdb-dev-routes",
+  "name": "cosmosdb-nosql-dev-routes",
   "description": null,
   "type": "cosmosdb",
   "subtype": null,

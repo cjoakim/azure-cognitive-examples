@@ -1,5 +1,5 @@
 {
-  "name": "routes",
+  "name": "nosql-routes",
   "fields": [
     {
       "name": "id",

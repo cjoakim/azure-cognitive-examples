@@ -1,7 +1,7 @@
 {
-  "name": "mongo-airports",
-  "dataSourceName": "cosmosdb-mongo-dev-airports",
-  "targetIndexName": "mongo-airports",
+  "name": "nosql-airports",
+  "dataSourceName": "cosmosdb-nosql-dev-airports",
+  "targetIndexName": "nosql-airports",
   "schedule": {
     "interval": "PT12H"
   }

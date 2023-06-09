@@ -1,5 +1,5 @@
 {
-  "name": "airports",
+  "name": "mongo-airports",
   "fields": [
     {
       "name": "id",

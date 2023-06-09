@@ -1,7 +1,7 @@
 {
-  "name": "mongo-routes",
-  "dataSourceName": "cosmosdb-mongo-dev-routes",
-  "targetIndexName": "mongo-routes",
+  "name": "nosql-routes",
+  "dataSourceName": "cosmosdb-nosql-dev-routes",
+  "targetIndexName": "nosql-routes",
   "schedule": {
     "interval": "PT12H"
   }

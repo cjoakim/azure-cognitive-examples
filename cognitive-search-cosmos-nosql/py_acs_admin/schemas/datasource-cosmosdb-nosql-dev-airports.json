@@ -1,5 +1,5 @@
 {
-  "name": "cosmosdb-dev-airports",
+  "name": "cosmosdb-nosql-dev-airports",
   "description": null,
   "type": "cosmosdb",
   "subtype": null,
