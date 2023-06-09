@@ -7,8 +7,14 @@
         ant -f copy_data.xml
     </description>
 
-
     <target name="copy_data" >
+
+        <!-- unzip the compressed archive file(s) stored in github -->
+
+        <unzip src="data/openflights/json/openflights-json.zip"
+              dest="data/openflights/json/"/>
+
+        <delete dir="data/openflights/json/META-INF/" />
 
         <!-- to cognitive-search-cosmos-mongo -->
 
