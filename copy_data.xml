@@ -1,0 +1,33 @@
+<project name="copy_data" default="copy_data" basedir=".">
+
+    <description>
+        Ant script copy data files from the common data/ directory to the 
+        data/ directories of the application directories in this repo.
+        Chris Joakim, Microsoft
+        ant -f copy_data.xml
+    </description>
+
+
+    <target name="copy_data" >
+
+        <!-- to cognitive-search-cosmos-mongo -->
+
+        <copy file="data/openflights/json/enhanced_airports.json"
+              todir="cognitive-search-cosmos-mongo/py_cosmos_data/data/"/>
+
+        <copy file="data/openflights/json/enhanced_routes.json"
+              todir="cognitive-search-cosmos-mongo/py_cosmos_data/data/"/>
+
+        <!-- to cognitive-search-cosmos-nosql -->
+
+        <copy file="data/openflights/json/enhanced_airports.json"
+              todir="cognitive-search-cosmos-nosql/py_cosmos_data/data/"/>
+
+        <copy file="data/openflights/json/enhanced_routes.json"
+              todir="cognitive-search-cosmos-nosql/py_cosmos_data/data/"/>
+
+        <echo message="done." />
+
+    </target>
+
+</project>
