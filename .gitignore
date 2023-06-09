@@ -3,7 +3,7 @@
 **/.DS_Store
 **/*.class
 **/*.pyc
-**/*.zip
+#**/*.zip
 
 **/.idea/
 **/bin/*
