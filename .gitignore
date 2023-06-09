@@ -18,7 +18,11 @@
 **/tmp/*.xml
 **/tmp/indexes/
 **/venv/
+**/META-INF/
 
+cognitive-search-cosmos-mongo/py_cosmos_data/data/*.json
+cognitive-search-cosmos-nosql/py_cosmos_data/data/*.json
+data/openflights/json/*.json
 
 ###############################################################################
 ## generated per GitHub Gradle project type
