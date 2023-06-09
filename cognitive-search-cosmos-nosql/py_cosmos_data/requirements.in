@@ -3,11 +3,9 @@
 # Chris Joakim, Microsoft
 
 arrow
-certifi
-dnspython
+azure-cosmos
 docopt
 Faker
 flake8
 humanize
-pymongo
 requests

@@ -10,16 +10,16 @@ Usage:
   python main.py load_route_data <db> <coll>
   python main.py load_route_data dev routes
   -
+  python main.py count_docs dev airports
   python main.py count_docs dev routes
-  python main.py truncate_container dev routes
+  <
+  python main.py truncate_container <db> <coll>
 Options:
   -h --help     Show this screen.
   --version     Show version.
 """
 
-# This is the entry-point for this Python application. The main method
-# is passed a "function" as sys.argv[1], and other function-specific
-# command-line args.  Most of the logic is delegated to class Tasks.
+# This is the entry-point for this Python application.
 #
 # Chris Joakim, Microsoft
 
@@ -44,7 +44,7 @@ def wrangle_openflights_data():
     parsed_airports, enhanced_routes = dict(), list()
     fake = Faker()
 
-    lines = FS.read_lines('data/openflights/json/airports.json')
+    lines = FS.read_lines('data/airports.json')
     for line in lines:
         try:
             airport = json.loads(line.strip())
@@ -63,7 +63,7 @@ def wrangle_openflights_data():
     print('{} airports parsed'.format(len(parsed_airports)))
     airport_keys = parsed_airports.keys()
 
-    lines = FS.read_lines('data/openflights/json/routes.json')
+    lines = FS.read_lines('data/routes.json')
     for line_idx, line in enumerate(lines):
         try:
             route = json.loads(line.strip())
@@ -103,11 +103,6 @@ def parse_airport(airport):
         return airport
     except Exception as e:
         return None
-
-def gen_frequent_passengers_list():
-    names = list()
-
-    return names
 
 def load_airport_data(dbname, cname):
     print('load_airport_data - dbname: {}, cname: {}'.format(dbname, cname))
@@ -186,10 +181,10 @@ def get_conn_string():
         return None
 
 def enhanced_airports_file():
-    return 'data/openflights/json/enhanced_airports.json'
+    return 'data/enhanced_airports.json'
 
 def enhanced_routes_file():
-    return 'data/openflights/json/enhanced_routes.json'
+    return 'data/enhanced_routes.json'
 
 def verbose():
     for arg in sys.argv:
