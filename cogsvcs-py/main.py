@@ -42,6 +42,7 @@ def text_translate_rest_supported_formats():
 
 
 def text_translate_rest():
+    # https://learn.microsoft.com/en-us/azure/cognitive-services/translator/reference/rest-api-guide
     # https://learn.microsoft.com/en-us/azure/cognitive-services/translator/document-translation/reference/rest-api-guide
     # https://learn.microsoft.com/en-us/azure/cognitive-services/translator/document-translation/quickstarts/get-started-with-rest-api?pivots=programming-language-python
     # https://learn.microsoft.com/en-us/azure/cognitive-services/translator/quickstart-translator-rest-api?tabs=csharp
